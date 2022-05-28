@@ -9,7 +9,7 @@ import br.edu.fateczl.ExemploREST.model.entity.MatriculaRelatorio;
 
 public interface MatriculaRelatorioRepository extends JpaRepository<MatriculaRelatorio, Integer>  {
 
-	@Query(value = "SELECT al.ra AS ra_aluno, al.nome AS nome_aluno, al.email AS email_aluno, "
+	@Query(value = "SELECT al.ra AS ra_aluno, al.nome AS nome_aluno, "
 			+ "	disc.codigo AS codigo_disciplina, disc.nome AS nome_disciplina "
 			+ " FROM aluno al, matricula mat, disciplina disc "
 			+ " WHERE al.ra = mat.ra_aluno "

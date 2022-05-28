@@ -1,12 +1,11 @@
 package br.edu.fateczl.ExemploREST.controller;
 
-import br.edu.fateczl.ExemploREST.model.dto.AlunoDTO;
-import br.edu.fateczl.ExemploREST.model.dto.DisciplinaDTO;
-import br.edu.fateczl.ExemploREST.model.dto.FaltaDTO;
 import br.edu.fateczl.ExemploREST.model.dto.SaveFaltaDTO;
 import br.edu.fateczl.ExemploREST.model.entity.Falta;
+import br.edu.fateczl.ExemploREST.model.entity.FaltaRelatorio;
 import br.edu.fateczl.ExemploREST.persistence.AlunoRepository;
 import br.edu.fateczl.ExemploREST.persistence.DisciplinaRepository;
+import br.edu.fateczl.ExemploREST.persistence.FaltaRelatorioRepository;
 import br.edu.fateczl.ExemploREST.persistence.FaltaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
-import java.util.stream.Collectors;
+
 @RestController
 @RequestMapping("rest")
 public class FaltaController implements IFaltaController{
@@ -27,6 +26,9 @@ public class FaltaController implements IFaltaController{
 
     @Autowired
     private DisciplinaRepository disciplinaRepository;
+
+    @Autowired
+    private FaltaRelatorioRepository faltaRelatorioRepository;
 
     @Override
     @PostMapping("falta")
@@ -51,5 +53,10 @@ public class FaltaController implements IFaltaController{
             repository.updateFalta(dto.getRa(),dto.getCodigoDisciplina(),dto.getDate(),dto.getPresenca());
         }
         return ResponseEntity.ok("Presenças atualizadas");
+    }
+
+    @GetMapping("falta/relatorio/{codigo}")
+    public ResponseEntity<List<FaltaRelatorio>> getFaltasRelatorio(@PathVariable String codigo){
+        return ResponseEntity.ok(faltaRelatorioRepository.findAllFaltasRelatorio(codigo));
     }
 }

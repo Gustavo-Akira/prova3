@@ -1,6 +1,5 @@
 package br.edu.fateczl.ExemploREST.controller;
 
-import br.edu.fateczl.ExemploREST.model.dto.FaltaDTO;
 import br.edu.fateczl.ExemploREST.model.dto.SaveFaltaDTO;
 import br.edu.fateczl.ExemploREST.model.entity.Falta;
 import org.springframework.http.ResponseEntity;

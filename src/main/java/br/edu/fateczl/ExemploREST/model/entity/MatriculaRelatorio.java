@@ -19,10 +19,6 @@ public class MatriculaRelatorio {
 	@Column(name = "nome_aluno", length = 50)
 	@NonNull
 	private String nomeAluno;
-
-	@Column(name = "email_aluno", length = 30)
-	@NonNull
-	private String emailAluno;
 	
 	@Id
 	@Column(name = "codigo_disciplina")
@@ -45,12 +41,6 @@ public class MatriculaRelatorio {
 	public void setNomeAluno(String nomeAluno) {
 		this.nomeAluno = nomeAluno;
 	}
-	public String getEmailAluno() {
-		return emailAluno;
-	}
-	public void setEmailAluno(String emailAluno) {
-		this.emailAluno = emailAluno;
-	}
 	public String getCodigoDisicplina() {
 		return codigoDisicplina;
 	}
@@ -66,7 +56,7 @@ public class MatriculaRelatorio {
 
 	@Override
 	public String toString() {
-		return "MatriculaRelatorio [raAluno=" + raAluno + ", nomeAluno=" + nomeAluno + ", emailAluno=" + emailAluno
+		return "MatriculaRelatorio [raAluno=" + raAluno + ", nomeAluno=" + nomeAluno
 				+ ", codigoDisicplina=" + codigoDisicplina + ", nomeDisciplina=" + nomeDisciplina + "]";
 	}
 }

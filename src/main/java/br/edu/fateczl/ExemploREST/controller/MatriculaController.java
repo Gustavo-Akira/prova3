@@ -43,17 +43,15 @@ public class MatriculaController implements IMatriculaController {
 
 	@Override
 	@GetMapping("/matricula/lista/{codigo}")
-	public List<MatriculaRelatorioDTO> listaMatricula(@PathVariable(value = "codigo") String codigo) {
+	public List<MatriculaRelatorio> listaMatricula(@PathVariable(value = "codigo") String codigo) {
 		List<MatriculaRelatorio> listaMatriculaRelatorio = mrRep.geraLista(codigo);
-		List<MatriculaRelatorioDTO> listaMatriculaRelatorioDTO = converteListaMRListaMRDTO(listaMatriculaRelatorio);
-		return listaMatriculaRelatorioDTO;
+		return listaMatriculaRelatorio;
 	}
 	
 	private MatriculaRelatorioDTO converteMRMRDTO(MatriculaRelatorio mat) {
 		MatriculaRelatorioDTO mrDTO = new MatriculaRelatorioDTO();
 		mrDTO.setRaAluno(mat.getRaAluno());
 		mrDTO.setNomeAluno(mat.getNomeAluno());
-		mrDTO.setEmailAluno(mat.getEmailAluno());
 		mrDTO.setCodigoDisicplina(mat.getCodigoDisicplina());
 		mrDTO.setNomeDisciplina(mat.getNomeDisciplina());
 		
