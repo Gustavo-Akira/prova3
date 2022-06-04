@@ -29,11 +29,9 @@ public class DisciplinaController implements IDisciplinaController {
 	
 	@Override
 	@GetMapping("/disciplina")
-	public List<DisciplinaDTO> buscarDisciplinas() {
+	public List<Disciplina> buscarDisciplinas() {
 		List<Disciplina> disciplinas = dRep.findAll();
-		List<DisciplinaDTO> disciplinasDTO = 
-				converteDisciplinasDisciplinasDTO(disciplinas);
-		return disciplinasDTO;
+		return disciplinas;
 	}
 
 	private List<DisciplinaDTO> converteDisciplinasDisciplinasDTO(List<Disciplina> disciplinas) {
@@ -49,10 +47,9 @@ public class DisciplinaController implements IDisciplinaController {
 
 	@Override
 	@GetMapping("/disciplina/{codigo}")
-	public ResponseEntity<DisciplinaDTO> buscarDisciplina(@PathVariable(value = "codigo") String codigo) {
+	public ResponseEntity<Disciplina> buscarDisciplina(@PathVariable(value = "codigo") String codigo) {
 		Disciplina disciplina = dRep.findById(codigo).orElseThrow();
-		DisciplinaDTO disciplinaDTO = converteDisciplinaDisciplinaDTO(disciplina);
-		return ResponseEntity.ok().body(disciplinaDTO);
+		return ResponseEntity.ok().body(disciplina);
 	}
 
 	@Override

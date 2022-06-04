@@ -35,6 +35,7 @@ public class FaltaController implements IFaltaController{
     public ResponseEntity<String> saveFalta(@RequestBody @Valid List<SaveFaltaDTO> dtos) {
         for (SaveFaltaDTO dto :
                 dtos) {
+            System.out.println(dto);
             repository.saveFalta(dto.getRa(),dto.getCodigoDisciplina(),dto.getDate(),dto.getPresenca());
         }
         return ResponseEntity.ok("Presenças contabilizadas");

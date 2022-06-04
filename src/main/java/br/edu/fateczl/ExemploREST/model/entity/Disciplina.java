@@ -19,6 +19,9 @@ public class Disciplina {
 	@Column(name = "nome", length = 40)
 	@NonNull
 	private String nome;
+
+	@Column(name = "num_aulas")
+	private Integer numAulas;
 	
 	public String getCodigo() {
 		return codigo;
@@ -33,11 +36,20 @@ public class Disciplina {
 		this.nome = nome;
 	}
 
+	public Integer getNumAulas() {
+		return numAulas;
+	}
+
+	public void setNumAulas(Integer numAulas) {
+		this.numAulas = numAulas;
+	}
+
 	@Override
 	public String toString() {
-		return "{" +
+		return "Disciplina{" +
 				"codigo='" + codigo + '\'' +
 				", nome='" + nome + '\'' +
+				", numAulas=" + numAulas +
 				'}';
 	}
 }

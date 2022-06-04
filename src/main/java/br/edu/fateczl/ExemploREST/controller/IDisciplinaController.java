@@ -9,8 +9,8 @@ import br.edu.fateczl.ExemploREST.model.entity.Disciplina;
 
 public interface IDisciplinaController {
 
-	public List<DisciplinaDTO> buscarDisciplinas();
-	public ResponseEntity<DisciplinaDTO> buscarDisciplina(String codigo);
+	public List<Disciplina> buscarDisciplinas();
+	public ResponseEntity<Disciplina> buscarDisciplina(String codigo);
 	public ResponseEntity<DisciplinaDTO> buscarDisciplinaPorNome(String nome);
 	public ResponseEntity<String> insereDisciplina(Disciplina disciplina);
 	public ResponseEntity<String> atualizaDisciplina(Disciplina disciplina);
